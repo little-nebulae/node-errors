@@ -5,4 +5,8 @@ export const NODE_SYSTEM_ERROR_ENUM = {
     code: "NODE_NO_ENTRY_SYSTEM_ERROR",
     errno: ERRNO_ENUM.ENOENT,
   },
+  ALREADY_EXISTED: {
+    code: "NODE_ALREADY_EXISTED_SYSTEM_ERROR",
+    errno: ERRNO_ENUM.EEXIST,
+  },
 } as const;
