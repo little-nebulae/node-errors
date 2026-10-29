@@ -533,4 +533,4 @@ export const ERRNO_ENUM = {
     number: 95,
     message: "Operation not supported",
   },
-};
+} as const;
