@@ -13,4 +13,8 @@ export const NODE_SYSTEM_ERROR_ENUM = {
     code: "NODE_NOT_DIRECTORY_SYSTEM_ERROR",
     errno: ERRNO_ENUM.ENOTDIR,
   },
+  IS_DIRECTORY: {
+    code: "NODE_IS_DIRECTORY_SYSTEM_ERROR",
+    errno: ERRNO_ENUM.EISDIR,
+  },
 } as const;
