@@ -26,3 +26,9 @@ export class NodeNoEntrySystemError extends BaseError<
     super({ message: message ?? cause.message, cause, meta: null });
   }
 }
+
+export function isNodeNoEntrySystemErrorCause(
+  exception: NodeJS.ErrnoException,
+): exception is NodeNoEntrySystemErrorCause {
+  return exception.errno === NODE_NO_ENTRY_SYSTEM_ERROR_ENUM.CAUSE.ERRNO;
+}
