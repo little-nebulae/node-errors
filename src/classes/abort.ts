@@ -1,18 +1,21 @@
 import { BaseError } from "@little-nebulae/error";
 
-import { NODE_ERROR_ENUM } from "@/enums/error";
+export const NODE_ABORT_ERROR_ENUM = {
+  CODE: "NODE_ABORT_ERROR",
+  CAUSE: { NAME: "AbortError", CODE: "ABORT_ERR" },
+} as const;
 
 export interface NodeAbortErrorCause extends Error {
-  name: typeof NODE_ERROR_ENUM.ABORT.cause.name;
-  code: typeof NODE_ERROR_ENUM.ABORT.cause.code;
+  name: typeof NODE_ABORT_ERROR_ENUM.CAUSE.NAME;
+  code: typeof NODE_ABORT_ERROR_ENUM.CAUSE.CODE;
 }
 
 export class NodeAbortError extends BaseError<
-  typeof NODE_ERROR_ENUM.ABORT.code,
+  typeof NODE_ABORT_ERROR_ENUM.CODE,
   NodeAbortErrorCause
 > {
   readonly name = "NodeAbortError";
-  readonly code = NODE_ERROR_ENUM.ABORT.code;
+  readonly code = NODE_ABORT_ERROR_ENUM.CODE;
 
   constructor({
     message,
@@ -28,5 +31,5 @@ export class NodeAbortError extends BaseError<
 export function isNodeAbortErrorCause(
   error: Error,
 ): error is NodeAbortErrorCause {
-  return "code" in error && error.code === NODE_ERROR_ENUM.ABORT.cause.code;
+  return "code" in error && error.code === NODE_ABORT_ERROR_ENUM.CODE;
 }
